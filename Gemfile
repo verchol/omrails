@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
-
+ruby '2.0.0'
 # Application gems
 gem 'rails', '4.0.0'
 gem 'jquery-rails'
-
 
 group :development, :test do
 	gem 'sqlite3'
@@ -20,13 +19,11 @@ group :assets do
 	gem 'coffee-rails', '~> 4.0.0'
 	# Use Uglifier as compressor for JavaScript assets
 	gem 'uglifier', '>= 1.3.0'
+	# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+	gem 'turbolinks', '1.1.1'
+	# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+	gem 'jbuilder', '1.0.2'
 end
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
