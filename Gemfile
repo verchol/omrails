@@ -3,6 +3,7 @@ ruby '2.0.0'
 # Application gems
 gem 'rails', '4.0.0'
 gem 'jquery-rails'
+gem 'devise'
 
 group :production do
 	gem 'pg'
@@ -32,6 +33,8 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+gem 'protected_attributes'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
