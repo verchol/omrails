@@ -4,6 +4,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 gem 'jquery-rails'
 gem 'devise'
+gem 'simple_form'
 
 group :production do
 	gem 'pg'
