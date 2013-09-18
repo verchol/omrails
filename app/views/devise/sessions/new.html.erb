@@ -2,8 +2,6 @@
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
   
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
   <%= f.input :email, placeholder: 'user@domain.com' %>
   <%= f.input :password, placeholder: 'hint: no special characters' %>
   <%= f.input :remember_me, as: :boolean %>
