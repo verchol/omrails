@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130918001115) do
+ActiveRecord::Schema.define(version: 20130918214208) do
 
   create_table "pins", force: true do |t|
     t.string   "description"
@@ -35,8 +35,6 @@ ActiveRecord::Schema.define(version: 20130918001115) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "name"
   end
 
