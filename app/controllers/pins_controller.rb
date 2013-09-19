@@ -1,30 +1,47 @@
 class PinsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
 
   # GET /pins
   # GET /pins.json
   def index
     @pins = Pin.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @pin }
+    end
   end
 
   # GET /pins/1
   # GET /pins/1.json
   def show
+    @pin = Pin.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @pin }
+    end
   end
 
   # GET /pins/new
   def new
-    @pin = Pin.new
+    @pin = current_user.pins.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @pin }
+    end
   end
 
   # GET /pins/1/edit
   def edit
+    @pin = current_user.pins.find(params[:id])
   end
 
   # POST /pins
   # POST /pins.json
   def create
-    @pin = Pin.new(pin_params)
+    @pin = current_user.pins.new(params[:pin])
 
     respond_to do |format|
       if @pin.save
@@ -40,8 +57,10 @@ class PinsController < ApplicationController
   # PATCH/PUT /pins/1
   # PATCH/PUT /pins/1.json
   def update
+    @pin = current_user.pins.find(params[:id])
+
     respond_to do |format|
-      if @pin.update(pin_params)
+      if @pin.update_attributes(params[:pin])
         format.html { redirect_to @pin, notice: 'Pin was successfully updated.' }
         format.json { head :no_content }
       else
@@ -54,6 +73,7 @@ class PinsController < ApplicationController
   # DELETE /pins/1
   # DELETE /pins/1.json
   def destroy
+    @pin = current_user.pins.find(params[:id])
     @pin.destroy
     respond_to do |format|
       format.html { redirect_to pins_url }
