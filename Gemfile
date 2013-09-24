@@ -10,6 +10,7 @@ gem 'aws-sdk'
 gem 'faker'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate'
+gem 'acts_as_follower'
 
 group :production do
 	gem 'pg'
