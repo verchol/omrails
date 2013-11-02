@@ -1,34 +1,32 @@
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-             
-             <%= link_to "Social Butterfly", root_path, class: "brand" %>
-
-                <div class="nav-collapse">
-                    <ul class="nav">
-                        <li>
-                            <%= link_to 'Home',  root_path %>
-                        </li>
-                        <li>    
-                            <%= link_to 'About',  about_path %>
-                        </li>
-                    </ul>
-                    <ul class="nav pull-right">
-                        <% if user_signed_in? %>
-                            <li><%= link_to "Add +", new_pin_path %></li>
-                            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-                            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-                        <% else %>
-                            <li><%= link_to 'Login',  new_user_session_path %></li>
-                        <% end %>
-                    </ul>
-                </div>
-        </div>
+<nav class="navbar navbar-static-top navbar-default" role="navigation">
+  <div class="container">
+   <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button> 
+      <a class="navbar-brand"
+        <%= link_to "Social Butterfly", root_path, class: "navbar-brand" %>
+       </a>
     </div>
-</div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "About", about_path %></li> 
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+            <li><%= link_to "Add +", new_pin_path %></li>
+            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+            <li><%= link_to 'Login',  new_user_session_path %></li>
+        <% end %>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</div><!-- .container -->
+</nav>
