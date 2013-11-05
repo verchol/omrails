@@ -1,9 +1,8 @@
 class PinsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
-  # GET /pins
-  # GET /pins.json
   def index
     # With pagination from will_paginate gem
     @pins = Pin.order("created_at desc").page(params[:page]).per_page(20)
@@ -15,8 +14,6 @@ class PinsController < ApplicationController
     end
   end
 
-  # GET /pins/1
-  # GET /pins/1.json
   def show
     @pin = Pin.find(params[:id])
     respond_to do |format|
@@ -26,9 +23,8 @@ class PinsController < ApplicationController
     end
   end
 
-  # GET /pins/new
   def new
-    @pin = current_user.pins.new
+    @pin = current_user.pins.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,15 +32,12 @@ class PinsController < ApplicationController
     end
   end
 
-  # GET /pins/1/edit
   def edit
     @pin = current_user.pins.find(params[:id])
   end
 
-  # POST /pins
-  # POST /pins.json
   def create
-    @pin = current_user.pins.new(params[:pin])
+    @pin = current_user.pins.build(params[:pin])
 
     respond_to do |format|
       if @pin.save
@@ -57,8 +50,6 @@ class PinsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pins/1
-  # PATCH/PUT /pins/1.json
   def update
     @pin = current_user.pins.find(params[:id])
 
@@ -73,8 +64,6 @@ class PinsController < ApplicationController
     end
   end
 
-  # DELETE /pins/1
-  # DELETE /pins/1.json
   def destroy
     @pin = current_user.pins.find(params[:id])
     @pin.destroy
@@ -90,8 +79,13 @@ class PinsController < ApplicationController
       @pin = Pin.find(params[:id])
     end
 
+    def correct_user
+      @pin = current_user.pins.find_by(id: params[:id])
+      redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:description)
+      params.require(:pin).permit(:description, :image)
     end
 end

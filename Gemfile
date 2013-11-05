@@ -3,10 +3,11 @@ ruby '2.0.0'
 # Application gems
 gem 'rails', '4.0.0'
 gem 'jquery-rails'
-gem 'devise'
+gem 'devise', '~> 3.1.1'
 gem 'simple_form', '~> 3.0.0.rc'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
+gem "masonry-rails", '~> 0.2.0'
 gem 'faker'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate'
@@ -32,9 +33,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks', '1.1.1'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '1.0.2'
+gem 'jbuilder', '1.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
