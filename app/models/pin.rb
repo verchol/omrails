@@ -2,6 +2,7 @@ class Pin < ActiveRecord::Base
 	attr_accessible :description, :image, :image_remote_url
 	has_attached_file :image
 
+	validates :image, presence: true
 	validates :description, presence: true
 	validates :user_id, presence: true
 	validates_attachment :image, presence: true,

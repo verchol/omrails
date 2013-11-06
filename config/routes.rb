@@ -3,6 +3,7 @@ Omrails::Application.routes.draw do
   devise_for :users
   get 'about' => 'pages#about'
   root :to => 'pins#index'
+  get 'user_pins' => 'pins#user_pins'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

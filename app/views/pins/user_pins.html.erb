@@ -2,11 +2,7 @@
 <%# means look in pages subfolder for _home.html.erb %>
 <%= render 'pages/home' unless user_signed_in? %>
 <div id="pins" class="transitions-enabled">
-  <%= render @pins %>
+	<% if user_signed_in? %>
+  	<%= render current_user.pins %>
+  <% end %>
 </div> 
-
-<div id="view_paginate">
-	<div class="center">
-		<%= will_paginate @pins %>
-	</div>
-</div>

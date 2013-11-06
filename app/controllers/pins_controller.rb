@@ -5,31 +5,20 @@ class PinsController < ApplicationController
 
   def index
     # With pagination from will_paginate gem
-    @pins = Pin.order("created_at desc").page(params[:page]).per_page(20)
-
+    @pins = Pin.all.order("created_at DESC").page(params[:page]).per_page(20)
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @pin }
+      #format.json { render json: @pins }
       format.js
     end
   end
 
   def show
     @pin = Pin.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @pin }
-      format.js
-    end
   end
 
   def new
     @pin = current_user.pins.build
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @pin }
-    end
   end
 
   def edit
@@ -38,39 +27,26 @@ class PinsController < ApplicationController
 
   def create
     @pin = current_user.pins.build(params[:pin])
-
-    respond_to do |format|
       if @pin.save
-        format.html { redirect_to @pin, notice: 'Pin was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @pin }
+        redirect_to @pin, notice: 'Pin was successfully created.'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @pin.errors, status: :unprocessable_entity }
+        render action: 'new'  
       end
-    end
   end
 
   def update
     @pin = current_user.pins.find(params[:id])
-
-    respond_to do |format|
       if @pin.update_attributes(params[:pin])
-        format.html { redirect_to @pin, notice: 'Pin was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @pin, notice: 'Pin was successfully updated.'
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @pin.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
-    end
   end
 
   def destroy
     @pin = current_user.pins.find(params[:id])
     @pin.destroy
-    respond_to do |format|
-      format.html { redirect_to pins_url }
-      format.json { head :no_content }
-    end
+      redirect_to pins_url
   end
 
   private
