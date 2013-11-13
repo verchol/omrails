@@ -1,7 +1,7 @@
 require 'open-uri'
 namespace :db do
   desc "Fill database with sample data"
-  task populateimage: :environment do
+  task populateimages3: :environment do
 
 	User.all.each do |user|
       puts "[DEBUG] uploading images for user #{user.id} of #{User.last.id}"
