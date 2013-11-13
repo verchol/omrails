@@ -6,7 +6,7 @@ gem 'jquery-rails'
 gem 'devise', '~> 3.1.1'
 gem 'simple_form', '~> 3.0.0.rc'
 gem "paperclip", "~> 3.0"
-gem 'aws-sdk', '~> 1.20.0'
+gem 'aws-sdk', '~> 1.5.7'
 gem "masonry-rails", '~> 0.2.0'
 gem 'faker'
 gem 'will_paginate', '3.0.3'

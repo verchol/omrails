@@ -36,9 +36,10 @@ GEM
     acts_as_follower (0.2.0)
     arel (4.0.0)
     atomic (1.1.14)
-    aws-sdk (1.20.0)
+    aws-sdk (1.5.8)
+      httparty (~> 0.7)
       json (~> 1.4)
-      nokogiri (>= 1.4.4, < 1.6.0)
+      nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
     bootstrap-will_paginate (0.0.10)
@@ -66,6 +67,9 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     hike (1.2.3)
+    httparty (0.12.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.5)
     jbuilder (1.2.0)
       activesupport (>= 3.0.0)
@@ -82,9 +86,12 @@ GEM
     masonry-rails (0.2.0)
       rails
     mime-types (1.25)
+    mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.0)
-    nokogiri (1.5.10)
+    multi_xml (0.5.5)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
     paperclip (3.5.1)
       activemodel (>= 3.0.0)
@@ -163,7 +170,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_follower
-  aws-sdk (~> 1.20.0)
+  aws-sdk (~> 1.5.7)
   bootstrap-sass!
   bootstrap-will_paginate
   coffee-rails (~> 4.0.0)
