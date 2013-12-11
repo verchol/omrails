@@ -6,10 +6,11 @@ gem 'jquery-rails'
 gem 'devise', '~> 3.1.1'
 gem 'simple_form', '~> 3.0.0.rc'
 gem "paperclip", "~> 3.0"
+gem "paperclip-dropbox"
 gem 'aws-sdk', '~> 1.5.7'
 gem "masonry-rails", '~> 0.2.0'
-gem 'faker'
-gem 'will_paginate', '3.0.3'
+gem 'faker', "~> 1.2.0"
+gem 'will_paginate', '~> 3.0.3'
 gem 'bootstrap-will_paginate'
 gem 'acts_as_follower'
 
