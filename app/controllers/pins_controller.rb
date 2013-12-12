@@ -5,7 +5,7 @@ class PinsController < ApplicationController
 
   def index
     # With pagination from will_paginate gem
-    @pins = Pin.all.order("created_at DESC").page(params[:page]).per_page(20)
+    @pins = Pin.order("created_at DESC").page(params[:page]).per_page(20)
     respond_to do |format|
       format.html # index.html.erb
       #format.json { render json: @pins }
