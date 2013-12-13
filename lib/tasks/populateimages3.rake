@@ -15,7 +15,7 @@ namespace :db do
   task populateimages3: :environment do
 	 User.all.each do |user|
       puts "[DEBUG] uploading images for user #{user.id} of #{User.last.id}"
-      10.times do |n|
+      5.times do |n|
         image = (remote_full_url).sample
         description = %w(cool awesome crazy wow adorbs incredible).sample
         user.pins.create!(image: image, description: description)
