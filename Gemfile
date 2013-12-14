@@ -3,7 +3,7 @@ ruby '2.0.0'
 # Application gems
 gem 'rails', '4.0.0'
 gem 'jquery-rails'
-gem 'devise', '~> 3.1.1'
+gem 'devise'
 gem 'simple_form', '~> 3.0.0.rc'
 gem "paperclip", "~> 3.0"
 gem "paperclip-dropbox"
@@ -21,6 +21,7 @@ end
 
 group :development, :test do
 	gem 'sqlite3'
+	gem "better_errors"
 end
 
 
