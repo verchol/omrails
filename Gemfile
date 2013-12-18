@@ -13,10 +13,11 @@ gem 'faker', "~> 1.2.0"
 gem 'will_paginate', '~> 3.0.3'
 gem 'bootstrap-will_paginate'
 gem 'acts_as_follower'
+#gem 'pg'
 
 group :production do
-	gem 'pg'
 	gem 'rails_12factor'
+	gem 'pg'
 end
 
 group :development, :test do
