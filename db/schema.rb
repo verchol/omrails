@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130924014731) do
+ActiveRecord::Schema.define(version: 20131218231554) do
 
   create_table "follows", force: true do |t|
     t.integer  "followable_id",                   null: false
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20130924014731) do
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
 
+  create_table "locations", force: true do |t|
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.float    "lat"
+    t.float    "lng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pins", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
@@ -36,9 +47,11 @@ ActiveRecord::Schema.define(version: 20130924014731) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_remote_url"
+    t.integer  "location_id"
   end
 
   add_index "pins", ["user_id"], name: "index_pins_on_user_id"
+  add_index "pins", ["location_id"], name: "index_pins_on_location_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -58,5 +71,4 @@ ActiveRecord::Schema.define(version: 20130924014731) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
 end
