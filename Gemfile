@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.2.3' #previously 2.0.0
 # Application gems
-gem 'rails', '4.0.0'
+gem 'rails', '4.2.5' #previously 4.0.0
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form', '~> 3.0.0.rc'
