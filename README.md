@@ -1,6 +1,6 @@
-# One Month Rails
+# Based on One Month Rails Tutorial
 
-This is the sample application for 
-[*One Month Rails: Teach Yourself to Code*](http://onemonthrails.com)
+This is modified to use paperclip and jQuery continuous scroll
 
-by [Mattan Griffel](http://mattangriffel.com)
+
+by [Neil Gehani](http://gehani.me)
