@@ -28,4 +28,5 @@ Omrails::Application.configure do
   config.assets.debug = true
   #In production, :host should be set to the actual host of your application.
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

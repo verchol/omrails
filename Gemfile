@@ -5,8 +5,8 @@ gem 'rails', '4.0.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form', '~> 3.0.0.rc'
-gem "paperclip", "~> 3.0"
-gem "paperclip-dropbox"
+gem "paperclip", "~> 4.3" #previously 3.0"
+#gem "paperclip-dropbox"
 gem 'aws-sdk', '~> 1.5.7'
 gem "masonry-rails", '~> 0.2.0'
 gem 'faker', "~> 1.2.0"
@@ -27,7 +27,7 @@ end
 
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'	
+gem 'sass-rails', '~> 4.0.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
