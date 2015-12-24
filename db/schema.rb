@@ -13,12 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20131218231554) do
 
-  create_table "follows", force: true do |t|
-    t.integer  "followable_id",                   null: false
-    t.string   "followable_type",                 null: false
-    t.integer  "follower_id",                     null: false
-    t.string   "follower_type",                   null: false
-    t.boolean  "blocked",         default: false, null: false
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followable_id",                               null: false
+    t.string   "followable_type", limit: 255,                 null: false
+    t.integer  "follower_id",                                 null: false
+    t.string   "follower_type",   limit: 255,                 null: false
+    t.boolean  "blocked",                     default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,45 +26,45 @@ ActiveRecord::Schema.define(version: 20131218231554) do
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
 
-  create_table "locations", force: true do |t|
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
+  create_table "locations", force: :cascade do |t|
+    t.string   "address",    limit: 255
+    t.string   "city",       limit: 255
+    t.string   "state",      limit: 255
+    t.string   "zip",        limit: 255
     t.float    "lat"
     t.float    "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "pins", force: true do |t|
-    t.string   "description"
+  create_table "pins", force: :cascade do |t|
+    t.string   "description",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "image_remote_url"
+    t.string   "image_remote_url",   limit: 255
   end
 
   add_index "pins", ["user_id"], name: "index_pins_on_user_id"
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
+    t.string   "name",                   limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

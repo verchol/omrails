@@ -1,18 +1,20 @@
 source 'https://rubygems.org'
-ruby '2.2.3' #previously 2.0.0
+ruby '2.2.3'
 # Application gems
 gem 'rails', '4.2.5' #previously 4.0.0
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form', '~> 3.0.0.rc'
 gem "paperclip", "~> 4.3" #previously 3.0"
-#gem "paperclip-dropbox"
-gem 'aws-sdk', '~> 1.5.7'
+gem "paperclip-dropbox", ">=1.1.7"
+gem 'aws-sdk' #'~> 1.5.7'
 gem "masonry-rails", '~> 0.2.0'
 gem 'faker', "~> 1.2.0"
 gem 'will_paginate', '~> 3.0.3'
 gem 'bootstrap-will_paginate'
 gem 'acts_as_follower'
+gem "binding_of_caller"
+gem "figaro"
 #gem 'pg'
 
 group :production do
