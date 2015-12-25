@@ -28,5 +28,21 @@ Omrails::Application.configure do
   config.assets.debug = true
   #In production, :host should be set to the actual host of your application.
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  #config.paperclip_defaults = {
+  #:storage => :dropbox,
+  #:dropbox_credentials => {
+  #  :app_key => ENV['APP_KEY'],
+  #  :app_secret => ENV['APP_SECRET'],
+  #  :access_token => ENV['ACCESS_TOKEN'],
+  #  :access_token_secret => ENV['ACCESS_TOKEN_SECRET'],
+  #  :user_id => ENV['USER_ID'],
+  #  :access_type => 'app_folder',
+  #  :dropbox_visibility => 'private' }
+  #}
+  #config.paperclip_defaults = {
+  #:storage => :dropbox,
+  #  :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+  #  :dropbox_options => {...}
+  #}
   Paperclip.options[:command_path] = "/usr/local/bin/"
 end
