@@ -20,7 +20,7 @@ module Omrails
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    #Required for Heroku
-    config.assets.initialize_on_precompile = false
+    #Required for Heroku Rails 3.x only not needed for 4.x
+    # config.assets.initialize_on_precompile = false
   end
 end
