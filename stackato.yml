@@ -10,3 +10,8 @@ services:
     version: 9.1
 ignores: ["/public/system"]
 command: bundle exec rake db:migrate && rails s -p $PORT
+requirements:
+  staging:
+    ubuntu:
+    - libmagickcore-dev
+    - libmagickwand-dev
