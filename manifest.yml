@@ -1,0 +1,18 @@
+applications:
+- command: bundle exec rake db:migrate && rails s -p $PORT
+  disk: 2048
+  memory: 256
+  name: social-butterfly-fixed
+  path: .
+  services:
+    free.postgresql-59ead:
+      label: postgresql
+      plan: free
+      provider: core
+      version: 9.1
+  stackato:
+    ignores:
+    - public/system
+    requirements:
+      ubuntu:
+      - libmagickwand-dev imagemagick

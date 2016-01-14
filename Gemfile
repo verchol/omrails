@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.2.0' 
 # Application gems
 gem 'rails', '4.2.5' #previously 4.0.0
 gem 'jquery-rails'
