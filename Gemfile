@@ -20,6 +20,7 @@ gem "figaro"
 group :production do
 	gem 'rails_12factor'
 	gem 'pg'
+	gem 'rmagick'
 end
 
 group :development, :test do
