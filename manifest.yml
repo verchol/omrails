@@ -1,19 +1,22 @@
 applications:
-- command: bundle exec rake db:migrate && rails s -p $PORT
-  disk: 2048
+- name: social-butterfly-ng-r224
   memory: 256
-  name: social-butterfly-ng
+  disk: 2048
   path: .
   services:
-    free.postgresql-59ead:
+    social-butterfly-pg:
       label: postgresql
       plan: free
       provider: core
       version: 9.1
   stackato:
+    hooks:
+      post-staging:
+      - rake db:migrate
+      - rake db:populate
+      - rake db:populateimages3
     ignores:
     - public/system
-    - sampleimage
     requirements:
       ubuntu:
       - libmagickwand-dev imagemagick
